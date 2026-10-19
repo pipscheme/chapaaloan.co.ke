@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chapaa Loan - Pesa Pap! | CBK Compliant | Up to 100K</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Inter',system-ui,sans-serif}
+body{background:#f8faf7}
+.header{background:#fff;padding:12px 20px;display:flex;justify-content:space-between;align-items:center;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,0.06)}
+.logo{font-weight:900;font-size:24px} .logo b{color:#0aa84b}
+.hero{background:linear-gradient(rgba(0,0,0,0.55),rgba(0,0,0,0.75)), url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1200'); background-size:cover; background-position:center; color:#fff; padding:50px 20px 80px; text-align:center}
+.hero h1{font-size:36px; line-height:1.1; margin:15px 0}
+.badge{background:#fff200;color:#000;padding:6px 14px;border-radius:50px;font-weight:800;font-size:12px}
+.card{background:#fff;border-radius:22px;padding:22px;margin:-40px 16px 16px;box-shadow:0 16px 40px rgba(0,0,0,0.15);position:relative;z-index:2}
+.row{display:flex;justify-content:space-between;margin:8px 0;font-size:14px}
+.big{font-size:26px;font-weight:900}
+input,select{width:100%;padding:14px;border:1.6px solid #ddd;border-radius:12px;margin:6px 0;font-size:15px}
+input:focus{border-color:#0aa84b;outline:none}
+.range{width:100%;accent-color:#0aa84b}
+.btn{width:100%;padding:16px;border:none;border-radius:14px;font-weight:900;font-size:16px;cursor:pointer;margin-top:10px}
+.btn-green{background:#0aa84b;color:#fff}
+.btn-black{background:#111;color:#fff}
+.tier-wrap{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin:16px}
+.tier{background:#fff;border:2px solid #eee;border-radius:14px;padding:10px;text-align:center;font-size:12px}
+.tier.active{border-color:#0aa84b;background:#e8ffec}
+.notice{background:#f0fff2;border:1px dashed #0aa84b;padding:12px;border-radius:12px;font-size:12px;margin:10px 0}
+.license{background:#fff;padding:16px;margin:16px;border-radius:14px;font-size:11px;color:#666;border-left:4px solid #0aa84b}
+</style>
+</head>
+<body>
+
+<div class="header">
+<div class="logo">Chapaa<b>Loan</b></div>
+<div style="font-size:10px;background:#e8ffec;color:#0aa84b;padding:6px 10px;border-radius:20px;font-weight:800"> • CBK COMPLIANT MODEL</div>
+</div>
+
+<div class="hero">
+<span class="badge">⚡ PESA PAP! 5 MINS</span>
+<h1>Pata Mkopo<br>Hadi KES 100,000</h1>
+<p>Fee ya KES 50 pekee, it is a commitment fee. only paid once.</p>
+</div>
+
+<div class="card" id="calcCard">
+<div class="row"><span>Unataka kiasi gani?</span><span class="big" id="amtTxt">KES 3,000</span></div>
+<input type="range" class="range" id="loanRange" min="500" max="100000" step="500" value="3000" oninput="calc()">
+<div class="row" style="font-size:11px;color:#999"><span>500</span><span>100,000</span></div>
+<hr style="margin:12px 0;border:none;border-top:1px dashed #eee">
+<div class="row"><span>Processing Fee (deducted)</span><b style="color:#0aa84b">KES 50</b></div>
+<div class="row"><span>Utapokea M-Pesa</span><span class="big" style="color:#0aa84b" id="receive">KES 2,950</span></div>
+<div class="row"><span>Utalipa baadaye (15%)</span><span id="repay"><b>KES 3,450</b></span></div>
+<div class="notice">✅ <b> Lipa na M-Pesa Accepted.</b> Ukikubaliwa, unatumiwa pesa less direct to your number. Hii ndio commitment fee yako na inachuja watu wasio serious.</div>
+</div>
+
+<div class="tier-wrap">
+<div class="tier active"><b>TIER 1 - Mgeni</b><br>500 - 3K<br><small>First loan</small></div>
+<div class="tier"><b>TIER 2 - Trusted</b><br>5K - 25K</div>
+<div class="tier"><b>TIER 3 - VIP</b><br>50K - 100K<br><small>Business + Logbook</small></div>
+</div>
+
+<div class="card">
+<h2 style="margin-bottom:8px">Apply Sasa - 30 Sec</h2>
+<input id="name" placeholder="Jina Kamili (kama kwa ID)">
+<input id="phone" placeholder="Namba ya M-Pesa 07...">
+<input id="email" type="email" placeholder="Email Address">
+<select id="amount">
+<option value="500">500 - Utapokea 500</option>
+<option value="1000">1,000 - Utapokea 950</option>
+<option value="2000">2,000 - Utapokea 2000</option>
+<option value="3000" selected>3,000 - Utapokea 3000 (New users)</option>
+<option value="10000">10,000 - VIP Only</option>
+<option value="50000">50,000 - Business Loan</option>
+<option value="100000">100,000 - Logbook Required</option>
+</select>
+<label style="font-size:12px;display:flex;gap:8px;margin:10px 0"><input type="checkbox" id="agree" style="width:auto"> Nimekubali kulipa fee ya 50 to process loan yangu. Niko tayari kulipa 50  kama commitment. Hakuna refund inayohitajika juu sija lipa mbele.</label>
+<button class="btn btn-black" onclick="submitForm()">TUMA MAOMBI → WHATSAPP</button>
+<p style="font-size:10px;color:#888;margin-top:8px;text-align:center">By applying you agree to CBK DCP Terms. No upfront fees.</p>
+</div>
+
+<div class="license">
+<b>Disclaimer:</b> Chapaa Loan operates under the CBK Digital Credit Providers model. Processing fee of KES 50 . Example: Borrow 3000, receive 3000, repay 3450 in 14-30 days. APR 180% max. Tiered lending applies . For complaints contact support.
+</div>
+
+<script>
+function calc(){
+ let v=+document.getElementById('loanRange').value;
+ document.getElementById('amtTxt').innerText='KES '+v.toLocaleString();
+ document.getElementById('receive').innerText='KES '+(v-50).toLocaleString();
+ document.getElementById('repay').innerHTML='<b>KES '+Math.round(v*1.15).toLocaleString()+'</b>';
+}
+calc();
+function submitForm(){
+ let n=document.getElementById('name').value.trim();
+ let p=document.getElementById('phone').value.trim();
+ let e=document.getElementById('email').value.trim();
+ let a=document.getElementById('amount').value;
+ let ag=document.getElementById('agree').checked;
+ if(!n||!p||!e||!ag){alert('Jaza jina, phone, email na kubali terms');return}
+ let msg=`CHAPAA LOAN APPLICATION%0AName: ${n}%0APhone: ${p}%0AEmail: ${e}%0AAmount: ${a}%0AReceive: ${a-50}%0ATier: NEW`;
+ let adminNumber='254791851675'; // WEKA NUMBER YAKO HAPA
+ window.open(`https://wa.me/${adminNumber}?text=${msg}`,'_blank');
+ localStorage.setItem('last_app',JSON.stringify({n,p,e,a,date:new Date()}));
+ alert('Maombi yametumwa! Tutakujibu WhatsApp ndani ya 5 min.');
+}
+</script>
+</body>
+</html>
